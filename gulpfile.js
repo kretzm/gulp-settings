@@ -1,23 +1,21 @@
 /*!
  * gulp
- * $ npm install gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-livereload gulp-cache del --save-dev
+ * $ npm install gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-plumber del --save-dev
  */
  
 
 // Load plugins
 var gulp =          require('gulp'),
-	sass = 			require('gulp-sass'),
 	autoprefixer = 	require('gulp-autoprefixer'),
+	imagemin = 		require('gulp-imagemin'),
+	jshint = 		require('gulp-jshint'),
 	minifycss = 	require('gulp-minify-css'),
-	rename = 		require('gulp-rename'),
 	notify = 		require('gulp-notify'),
 	plumber =		require('gulp-plumber'),
+	rename = 		require('gulp-rename'),
+	sass = 			require('gulp-ruby-sass'),
+	uglify = 		require('gulp-uglify'),
 	del = 			require('del');
-	// jshint = require('gulp-jshint'),
-	// uglify = require('gulp-uglify'),
-	// imagemin = require('gulp-imagemin'),
-	// concat = require('gulp-concat'),
-	// livereload = require('gulp-livereload'),
 		
 
 // Clean CSS files
@@ -26,7 +24,7 @@ gulp.task('clean', function(cb) {
 });
 
 
-// Neighbourhood Forum Styles
+// Handle SASS/CSS compiling
 gulp.task('styles', function() 
 {
 	// Defining error handling
@@ -41,11 +39,14 @@ gulp.task('styles', function()
         this.emit('end');
     };
 
-
+    // Compiling
 	return gulp.src('sass/style.scss')
 		.pipe(plumber({errorHandler: onError}))
-		.pipe(sass({ outputStyle: 'compressed' }))
+		.pipe(sass({ 
+			lineNumbers : true,
+        }))
 		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+		.pipe(gulp.dest('css'))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(minifycss())
 		.pipe(gulp.dest('css'))
@@ -59,23 +60,11 @@ gulp.task('styles', function()
 });
 
  
-// Watch
+// Watch Files
 gulp.task('watch', function() {
  
 	// Watch .scss files
-	gulp.watch('sass/**/*.scss', ['styles']);
- 
-	// Watch .js files
-	// gulp.watch('src/scripts/**/*.js', ['scripts']);
- 
-	// Watch image files
-	// gulp.watch('src/images/**/*', ['images']);
- 
-	// Create LiveReload server
-	// livereload.listen();
- 
-	// Watch any files in dist/, reload on change
-	// gulp.watch(['dist/**']).on('change', livereload.changed); 
+	gulp.watch('sass/**/*.scss', ['styles']); 
 });
 
 

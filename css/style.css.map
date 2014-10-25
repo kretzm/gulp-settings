@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": ";AAIA,UAAW;EACP,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,MAAM;;;AAElB,MAAO;EACH,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,IAAI;EACX,aAAa,EAAE,IAAI;EACnB,UAAU,EAAE,MAAM;;;AAEtB,KAAM;EACF,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,KAAK;EAClB,KAAK,EAAE,IAAI;;;ACdf,UAAW;EACP,OAAO,EAAE,MAAM",
+"sources": ["../style.scss","../../../../../../../Users/kretzm/Desktop/Projects/Gulp/sass/_test.scss"],
+"names": [],
+"file": "style.css"
+}
