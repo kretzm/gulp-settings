@@ -1,0 +1,22 @@
+
+
+
+// Test SASS
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.title {
+    font-size: 50px;
+    color: #999;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.test {
+    font-size: 16px;
+    line-height: 1.4em;
+    color: #333;
+}
+.test { }
+
+@import "test";
