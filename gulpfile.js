@@ -5,17 +5,17 @@
  
 
 // Load plugins
-var gulp =          require('gulp'),
-	autoprefixer = 	require('gulp-autoprefixer'),
-	imagemin = 		require('gulp-imagemin'),
-	jshint = 		require('gulp-jshint'),
-	minifycss = 	require('gulp-minify-css'),
-	notify = 		require('gulp-notify'),
-	plumber =		require('gulp-plumber'),
-	rename = 		require('gulp-rename'),
-	sass = 			require('gulp-ruby-sass'),
-	uglify = 		require('gulp-uglify'),
-	del = 			require('del');
+var gulp =          	require('gulp'),
+	autoprefixer = 		require('gulp-autoprefixer'),
+	imagemin = 			require('gulp-imagemin'),
+	jshint = 			require('gulp-jshint'),
+	minifycss = 		require('gulp-minify-css'),
+	notify = 			require('gulp-notify'),
+	plumber =			require('gulp-plumber'),
+	rename = 			require('gulp-rename'),
+	sass = 				require('gulp-ruby-sass'),
+	uglify = 			require('gulp-uglify'),
+	del = 				require('del');
 		
 
 // Clean CSS files
